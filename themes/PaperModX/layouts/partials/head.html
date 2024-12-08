@@ -27,9 +27,12 @@
     {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
 <meta name="author" content="{{ (partial "author.html" . ) }}">
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
-{{- if site.Params.analytics.googlesiteVerificationTag }}
-<meta name="google-site-verification" content="{{ site.Params.analytics.googlesiteVerificationTag }}">
+{{- if site.Params.analytics.google.siteVerificationTag }}
+<meta name="google-site-verification" content="{{ site.Params.analytics.google.siteVerificationTag }}">
 {{- end }}
+
+<meta name="google-site-verification" content="w47jE9EDmtXIjTlcL6Oex8TU0hEQaHvH70RLUb6b3qQ">
+
 {{- if site.Params.analytics.yandexsiteVerificationTag }}
 <meta name="yandex-verification" content="{{ site.Params.analytics.yandexsiteVerificationTag }}">
 {{- end }}
@@ -81,6 +84,8 @@
     {{- partialCached "custom_analytics.html" . "custom_analytics.html" }}
   {{- end -}}
 {{- end -}}
+
+{{ template "_internal/google_analytics.html" . }}
 
 {{- /* https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started */}}
 {{- if .Params.cover.image }}
