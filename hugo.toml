@@ -1,0 +1,139 @@
+baseURL = "https://samay15jan.github.io/"
+title = "Samay Kumar"
+paginate = 5
+theme = "PaperModX"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+pygmentsUseClasses = true
+googleAnalytics = "UA-123-45"
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[params]
+env = "production"
+title = "Samay Kumar"
+description = "Personal Blogging site"
+keywords = [ "Blog", "Portfolio", "PaperModX" ]
+author = "Samay Kumar"
+images = [ "<link or path of image for opengraph, twitter-cards>" ]
+DateFormat = "January 2, 2006"
+defaultTheme = "dark"
+disableThemeToggle = false
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = false
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+
+  [params.assets]
+  favicon = "<link / abs url>"
+  favicon16x16 = "<link / abs url>"
+  favicon32x32 = "<link / abs url>"
+  apple_touch_icon = "<link / abs url>"
+  safari_pinned_tab = "<link / abs url>"
+
+  [params.label]
+  text = "Home"
+  icon = "/apple-touch-icon.png"
+  iconHeight = 35
+
+  [params.profileMode]
+  enabled = false 
+  title = "Samay Kumar"
+  subtitle = "My small internet nook."
+  imageUrl = "https://avatars.githubusercontent.com/u/97271429?v=4"
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = "profile pic"
+
+    [[params.profileMode.buttons]]
+    name = "Posts"
+    url = "posts"
+
+    [[params.profileMode.buttons]]
+    name = "Tags"
+    url = "tags"
+
+  [params.homeInfoParams]
+  Content = """I'm Samay, a software developer...seriously ?
+  
+  This is my small nook to express myself freely without any limits."""
+  imageUrl = "https://avatars.githubusercontent.com/u/97271429?v=4"
+  imageWidth = 120
+  imageHeight = 120
+  imageTitle = "profile pic"
+  
+  [[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/samay15jan"
+
+  [[params.socialIcons]]
+  name = "youtube"
+  url = "https://youtube.com/samay15jan"
+
+  [[params.socialIcons]]
+  name = "twitter"
+  url = "https://twitter.com/samay15jan"
+
+[params.analytics.google]
+SiteVerificationTag = "XYZabc"
+
+[params.analytics.bing]
+SiteVerificationTag = "XYZabc"
+
+[params.analytics.yandex]
+SiteVerificationTag = "XYZabc"
+
+  [params.cover]
+  hidden = true
+  hiddenInList = true
+  hiddenInSingle = true
+
+  [params.editPost]
+  URL = "https://github.com/<path_to_repo>/content"
+  Text = "Suggest Changes"
+  appendFilePath = true
+
+  [params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1_000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = [ "title", "permalink", "summary", "content" ]
+
+[[menu.main]]
+identifier = "archived"
+name = "Archived"
+url = "/archived/"
+weight = 10
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 20
+
+[[menu.main]]
+identifier = "resume"
+name = "Resume"
+url = "/resume/"
+weight = 10
+
+[[menu.main]]
+identifier = "portfolio"
+name = "Portfolio"
+url = "https://codedbysamay.onrender.com"
+weight = 30
