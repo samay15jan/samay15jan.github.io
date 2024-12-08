@@ -80,14 +80,14 @@ tocopen = false
 
   [[params.socialIcons]]
   name = "youtube"
-  url = "https://youtube.com/samay15jan"
+  url = "https://youtube.com/@samay15jan"
 
   [[params.socialIcons]]
   name = "twitter"
-  url = "https://twitter.com/samay15jan"
+  url = "https://x.com/samay15jan"
 
 [params.analytics.google]
-SiteVerificationTag = "XYZabc"
+SiteVerificationTag = "G-GBGX8PNY23"
 
 [params.analytics.bing]
 SiteVerificationTag = "XYZabc"
