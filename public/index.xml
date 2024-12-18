@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Samay Kumar</title>
-    <link>https://samay15jan.github.io/</link>
-    <description>Recent content on Samay Kumar</description>
+    <title>Samay15jan</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Samay15jan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Dec 2024 18:00:22 +0530</lastBuildDate><atom:link href="https://samay15jan.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hidden Mystery of Lion Fountain Water Clock</title>
-      <link>https://samay15jan.github.io/posts/hidden-mystery-of-lion-fountain-water-clock/</link>
-      <pubDate>Sun, 08 Dec 2024 18:00:22 +0530</pubDate>
-      
-      <guid>https://samay15jan.github.io/posts/hidden-mystery-of-lion-fountain-water-clock/</guid>
-      <description>Desc Text.</description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Exploring Spotify Scan Codes</title>
-      <link>https://samay15jan.github.io/posts/exploring-spotify-scan-codes/</link>
-      <pubDate>Sun, 08 Dec 2024 17:58:41 +0530</pubDate>
-      
-      <guid>https://samay15jan.github.io/posts/exploring-spotify-scan-codes/</guid>
-      <description>Desc Text.</description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
+    <lastBuildDate>Sun, 08 Dec 2024 18:00:22 +0530</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why I Started Blogging</title>
-      <link>https://samay15jan.github.io/posts/why-i-started-blogging/</link>
+      <link>http://localhost:1313/posts/why-i-started-blogging/</link>
       <pubDate>Sat, 07 Dec 2024 23:59:15 +0530</pubDate>
       
-      <guid>https://samay15jan.github.io/posts/why-i-started-blogging/</guid>
-      <description>Desc Text.</description>
-      <content:encoded><![CDATA[]]></content:encoded>
+      <guid>http://localhost:1313/posts/why-i-started-blogging/</guid>
+      <description>A little about me, why blogging and what can users expect with these blogs.</description>
+      <content:encoded><![CDATA[<h2 id="a-little-about-me">A little about me</h2>
+<p>Hi, there a random user, welcome to my first ever blog. Thou i am not sure whom i am greeting to cauz i don&rsquo;t think anyone would ever read it. Haha&hellip;laughing at my own jokes, my old act.ShowShareButtons: true</p>
+<p>Lemme introduce me to yeah all, especially those Google&rsquo;s web crawlers. I am <strong>Samay Kumar</strong>, known to no one by username <strong><a href="https://github.com/samay15jan">samay15jan</a></strong>.</p>
+<p>Am a Software Developer by profession <em>(i consider myself in my good books)</em>, but in reality am a just keen learner who just tries to explore technologies&hellip;<em>yeah u can call me a tech enthusiast</em>.</p>
+<h2 id="my-journey-to-blogging">My journey to blogging</h2>
+<p>If i really be honest, i don&rsquo;t exactly consider it as a blog. I&rsquo;m just here to express myself to the world without having any barriers. It&rsquo;s a place where my voice is the only thing u could hear&hellip;<em>voice ? hear ? Seriously, whats wrong with me</em>.</p>
+<p>I gained my inspiration for blogging from a random user on internet named <strong><a href="https://boonepeter.github.io">Peter Boone</a></strong>.<br>
+So on a fine day, after a long break in my coding journey, i wanted to try something fun. Eventually, i questioned myself &ldquo;How exactly does Spotify scan codes actually works ?&rdquo; more about in <strong><a href="https://samay15jan.github.io/posts/exploring-spotify-scan-codes/">this</a></strong> blog.</p>
+<p>And from there i stumbled on one of his article, suddenly an idea ignited. An idea to start to start something similar just so that i can have my very own corner on internet.<br>
+So, here i am using hugo with papermodx theme and writing my very own blog about &ldquo;Why i started blogging&rdquo;.</p>
+<h2 id="what-can-u-expect-">What can u expect ?</h2>
+<p>Let&rsquo;s quickly address the key points of what can u expect with these blogs, cauz it helps in&hellip;<em><strong>coughs</strong></em>&hellip;SEO Ranking. <em><strong>Ehh ?</strong></em> Sorry, User Experience:-</p>
+<ul>
+<li>Gain ultimate knowledge from your top notch blogger.</li>
+<li>Learn about tech tutorials, cool tricks and alot more</li>
+<li>A place where <del>i can waste my time</del> u can get a better understanding of complex stuff in simplest and fun manner.</li>
+<li>Learn how <strong>not</strong> to get inspired by your top notch blogger, so u get an idea what not to do.</li>
+<li>Exclusive insights about latest and older tech from your very own top notch blogger.</li>
+</ul>
+<blockquote>
+<p>Note: Enough bragging, simply these blogs shouldn&rsquo;t be a thing u should entirely trust on, do your research, let that brain of yours do some work.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>After all of those heart touching words from your neighborhood blogger, u should conclude that, u guys are going to get some good knowledge, tutorials, insights of technologies and learn from the mistake i made <em>(which i am not going to share hehe)</em>.</p>
+<p>But still keep your eyes open for the mind boggling beginning of our new journey, where i am as blank like u are after reading this blog, cauz we both don&rsquo;t know what is gonna happen next.</p>
+<p>See yeah on the other side.</p>
+<blockquote>
+<p>PS: Never trust a 19 years old top notch blogger who just started out.</p>
+</blockquote>
+]]></content:encoded>
     </item>
     
   </channel>

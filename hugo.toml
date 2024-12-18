@@ -1,5 +1,5 @@
 baseURL = "https://samay15jan.github.io/"
-title = "Samay Kumar"
+title = "Samay15jan"
 paginate = 5
 theme = "PaperModX"
 enableRobotsTXT = true
@@ -15,7 +15,7 @@ minifyOutput = true
 
 [params]
 env = "production"
-title = "Samay Kumar"
+title = "Samay15jan"
 description = "Personal Blogging site"
 keywords = [ "Blog", "Portfolio", "PaperModX" ]
 author = "Samay Kumar"
@@ -27,7 +27,8 @@ ShowReadingTime = true
 ShowShareButtons = true
 ShowPostNavLinks = true
 ShowBreadCrumbs = true
-ShowCodeCopyButtons = false
+ShowWordCount= true
+ShowCodeCopyButtons = true
 disableSpecial1stPost = false
 disableScrollToTop = false
 comments = false
@@ -35,12 +36,14 @@ hidemeta = false
 hideSummary = false
 showtoc = false
 tocopen = false
+TocSide = "right"
+EnableInstantClick = true
 
   [params.assets]
-  favicon = "<link / abs url>"
-  favicon16x16 = "<link / abs url>"
-  favicon32x32 = "<link / abs url>"
-  apple_touch_icon = "<link / abs url>"
+  favicon = "/assets/favicon.ico"
+  favicon16x16 = "/assets/favicon.ico"
+  favicon32x32 = "/assets/favicon.ico"
+  apple_touch_icon = "/assets/apple-touch-icon.png"
   safari_pinned_tab = "<link / abs url>"
 
   [params.label]
@@ -61,12 +64,8 @@ tocopen = false
     name = "Posts"
     url = "posts"
 
-    [[params.profileMode.buttons]]
-    name = "Tags"
-    url = "tags"
-
   [params.homeInfoParams]
-  Content = """I'm Samay, a software developer...seriously ?
+  Content = """I'm **Samay Kumar**, a software developer...kinda ?
   
   This is my small nook to express myself freely without any limits."""
   imageUrl = "https://avatars.githubusercontent.com/u/97271429?v=4"
@@ -115,16 +114,10 @@ SiteVerificationTag = "XYZabc"
   keys = [ "title", "permalink", "summary", "content" ]
 
 [[menu.main]]
-identifier = "archived"
-name = "Archived"
-url = "/archived/"
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
 weight = 10
-
-[[menu.main]]
-identifier = "tags"
-name = "Tags"
-url = "/tags/"
-weight = 20
 
 [[menu.main]]
 identifier = "resume"
@@ -133,7 +126,13 @@ url = "/resume/"
 weight = 10
 
 [[menu.main]]
-identifier = "portfolio"
-name = "Portfolio"
-url = "https://codedbysamay.onrender.com"
-weight = 30
+identifier = "search"
+name = "Search"
+url = "/search/"
+weight = 10
+
+[[menu.main]]
+identifier = "archives"
+name = "Archives"
+url = "/archives/"
+weight = 10

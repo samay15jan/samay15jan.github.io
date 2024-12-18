@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 500px) {
     .main {
-        padding-top: 0;
+        padding-top: 10;
     }
 }
 
@@ -74,12 +74,13 @@ mark {
     overflow: initial;  /* fix <mark> edge get cut */
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {    
     .first-entry .entry-header h1 {
         font-size: 30px;
     }
     .first-entry .entry-content {
         font-size: 16px;
+        margin: 0px 0;
     }
 }
 
