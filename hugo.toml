@@ -1,6 +1,5 @@
 baseURL = "https://samay15jan.github.io/"
 title = "Samay15jan"
-paginate = 5
 theme = "PaperModX"
 enableRobotsTXT = true
 buildDrafts = false
@@ -136,3 +135,6 @@ identifier = "archives"
 name = "Archives"
 url = "/archives/"
 weight = 10
+
+[pagination]
+pagerSize = 10
