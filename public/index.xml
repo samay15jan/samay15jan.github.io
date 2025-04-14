@@ -6,7 +6,147 @@
     <description>Recent content on Samay15jan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Dec 2024 23:59:15 +0530</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Built a TUI Without Leaving the Terminal</title>
+      <link>http://localhost:1313/posts/how-i-build-a-tui-without-leaving-the-terminal/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/how-i-build-a-tui-without-leaving-the-terminal/</guid>
+      <description>Sparklines TUI project showcasing the power of terminals.</description>
+      <content:encoded><![CDATA[<h3 id="what-does-tui-even-mean">What does TUI even mean?</h3>
+<p>Terminals are an overly complexified yet quick way to interact with the system and any task without leaving the terminal&hellip; ever. TUI stands for Terminal User Interface. Basically, it&rsquo;s a way to use some software features directly from the terminal with a user-intrusive interface, and use the keyboard to control everything.</p>
+<p>I know you might not understand it at first, because terminals are complex in their own way. So, it’s a step forward.</p>
+<blockquote>
+<p><strong>PS</strong>: In this article, don’t expect much of a learning experience, it&rsquo;s more about me showcasing a project I built for the terminal. And it’s definitely not gonna help you in your career ever. haha. So proceed wisely.</p></blockquote>
+<hr>
+<p><a href="https://asciinema.org/a/696484">
+  <img loading="lazy" src="https://raw.githubusercontent.com/samay15jan/Sparklines/main/TUI/demo.png" alt="project-screenshot"  /></a></p>
+<hr>
+<h3 id="why-tui-matters">Why TUI matters</h3>
+<p>We live in a world where everything is graphical, flashy, and requires 12GB of RAM to open a note-taking app (<em><del>Definitely not targeting Notion</del></em>). But sometimes, being raw is power. Terminals give you that rawness.</p>
+<p>It’s not just about nostalgia or being geeky for fun. TUI tools are:</p>
+<ul>
+<li>
+<p>Blazing fast (like seriously instant)</p>
+</li>
+<li>
+<p>Keyboard-driven, so your hands never leave the keys and forget the mouse even exists</p>
+</li>
+<li>
+<p>Often more scriptable and composable</p>
+</li>
+<li>
+<p>Lightweight and can run on toasters (or potatoes, if u prefer them)</p>
+</li>
+</ul>
+<p>For devs, sysadmins, hobbyists, and even minimalists, TUI is not just a UI – it&rsquo;s a philosophy.<br>
+And if you can make your own (even if it’s not fully polished)? Damn right it&rsquo;s still worth flexing.</p>
+<h3 id="what-did-i-do">What did I do?</h3>
+<p>A long time ago, somewhere in February of 2024, I got an idea to build myself a music streaming platform, &lsquo;caz at that time I was good with frontend web development. But I wanted to expand more, and what&rsquo;s the best way to learn than hands-on experience? That’s how I started learning backend. Fast forward 6–7 months, my web application was ready. I’ll explain the entire workflow in some other blog someday. For now, u can refer to GitHub <a href="https://github.com/samay15jan/sparklines">here</a>.</p>
+<p>So, from here I got an idea—why not use the custom backend (which I built on top of an open-source project <a href="https://github.com/sumitkolhe/jiosaavn-api">here</a>—I can’t remember if it was v2 or v3. idk) and build a terminal user interface to control music directly from the terminal? (Because other open-source projects were related to Spotify TUI and required a paid account with Spotify open in the background). But I needed something based on my use case, which I could run in the background while I was lost in coding sessions <em><strong>and didn’t eat up 60% of my RAM</strong></em>. I needed something like a command to run, and I could play any song I want directly from the terminal itself. After all, it’s going to be the coolest way to stream your music from the terminal!</p>
+<blockquote>
+<p><strong>NOTE</strong>: Just to be honest — it doesn’t &ldquo;stream&rdquo; like you think. My custom backend (built on top of JioSaavn) grabs the full song URL. Then I just pass that URL to <code>mpv</code>, a media player. Simple and effective, yet works like a charm.</p></blockquote>
+<p>For quite some time, this project was just sitting idle in my TO-DO list while I did my research on finding the perfect way I could do that. And that’s when I found <a href="https://github.com/vadimdemedes/ink">Ink</a>. It&rsquo;s a way I can use React for interactive command-line apps. Yeah, it&rsquo;s old but it’s a well-maintained and documented open-source project. I found it to be a perfect fit for my use case, ‘caz I did know JS/TS well and had hands-on experience in React itself. So, I believed it was going to be fun to build. Also, I couldn&rsquo;t find anyone who took this approach to build a highly intrusive TUI with React and Ink specifically, so either I’m making history or I’m one step closer to becoming that mad guy. <em>Win-Win situation haha.</em></p>
+<p>So, I went all in. Can’t truly recall how long it took me to build—somewhere around a month.<br>
+Oh shit&hellip; been talking all this time and didn’t tell u what I named it: <a href="https://github.com/samay15jan/Sparklines/tree/main/TUI"><strong>Sparklines-TUI</strong></a>. hehe</p>
+<hr>
+<h3 id="tech-stack">Tech Stack</h3>
+<p><strong>Languages &amp; Tools:</strong></p>
+<ul>
+<li>
+<p>NodeJS + TypeScript</p>
+</li>
+<li>
+<p><a href="https://github.com/vadimdemedes/ink">Ink</a> and <a href="https://github.com/vadimdemedes/ink-ui">Ink-UI</a></p>
+</li>
+<li>
+<p>mpv (for music playback)</p>
+</li>
+<li>
+<p>Custom backend (on top of JioSaavn)</p>
+</li>
+<li>
+<p>Socket &amp; fs handling in Node for communication with mpv</p>
+</li>
+<li>
+<p>Works in Termux (Android) (unstable)</p>
+</li>
+<li>
+<p>Vim/Google IDX (now Firebase Studio)</p>
+</li>
+</ul>
+<blockquote>
+<p>Some features are not yet implemented, but the basic functionality has been achieved, though there might be unknown bugs. You can report <a href="https://github.com/samay15jan/Sparklines/issues">here</a>, and chances are I might never fix them. hehe, so try doing some work yourself, and contributions are welcome.</p></blockquote>
+<hr>
+<h3 id="building-the-ui">Building the UI</h3>
+<p>Definitely, React + Ink streamlined the approach to build the tool, because I was able to use previous web development knowledge and not much of a learning curve either. It was definitely something worth it. I know people will say it&rsquo;s not good, design/system architecture sucks, should’ve used Rust or ncurses or something similar, and so on. Definitely agree with some things, but the reason I built it was to solve a problem I couldn’t find a solution for anywhere. So I created it for myself, and it serves the purpose and works as expected. Also, Rust or ncurses introduces a steep learning curve.</p>
+<h4 id="my-work-environment">My work environment</h4>
+<p>I used Vim mostly while I was building this. I cloned the Ink repo to read docs side by side. Definitely worth it. Vim itself is a skill, though it’s not that good for actual coding, and messing around with nvim felt like a burden. So I switched gears to a cloud IDE (Google IDX) for development, and it did increase my coding speed a lot, especially with Nix package management.</p>
+<h4 id="challenges-in-the-journey">Challenges in the journey</h4>
+<p>The biggest challenge I faced was getting some sort of way to play music. So I picked the easiest route—I directly implemented it with <a href="https://mpv.io/">mpv</a> and I channeled logs of mpv (which had timestamps, which I needed) to a log file under the <code>.sparklines</code> folder, and managed it with a socket (a two-way communication endpoint to handle the custom commands). With the power of NodeJS, I made it work out and somehow it turned out a lot better than expected. Also, configuration files can be accessed at <code>.sparklines/config</code>.</p>
+<p>For sure, <strong>Ink</strong> was something ahead of its time. It has everything one needs to build something like this. At least for fun. I faced challenges when I was working with the UI itself, though it took me some time to perfectionate it and make it modular and work with custom shortcuts. Packaging was a very simple and quick task.</p>
+<blockquote>
+<p>BTW, u can get it directly using <code>npm i sparklines-tui -g</code>.</p></blockquote>
+<h4 id="some-features">Some Features</h4>
+<ul>
+<li>
+<p>Control music directly from the terminal</p>
+</li>
+<li>
+<p>Login/Register functionality</p>
+</li>
+<li>
+<p>API key-based interaction with <a href="https://github.com/samay15jan/sparklines-backend">Sparklines Backend</a></p>
+</li>
+<li>
+<p>Continuous playback (still buggy) and clean playback bar</p>
+</li>
+<li>
+<p>Custom shortcuts &amp; help menu (Alt+h)</p>
+</li>
+<li>
+<p>Search songs, albums, and artists</p>
+</li>
+<li>
+<p>Music language selector</p>
+</li>
+<li>
+<p>Recommendations &amp; infinite play (work in progress) [TODO]</p>
+</li>
+<li>
+<p>Loop, shuffle, queue, and lyrics support (coming soon) [TODO]</p>
+</li>
+<li>
+<p>NPM packaged and works on Termux (to some extent)</p>
+</li>
+</ul>
+<blockquote>
+<p>For installation, refer to <a href="https://github.com/samay15jan/Sparklines/tree/main/TUI">docs</a>.</p></blockquote>
+<h4 id="help-menu">Help Menu</h4>
+<p>Some useful commands (can be accessed through Alt + h):</p>
+<pre tabindex="0"><code>Tab                 → Navigate between sections  
+Spacebar            → Toggle between play and pause  
+Enter               → Select the selected item  
+Ctrl + m            → Mute/unmute the audio  
+Ctrl + x            → Hide other section  
+Ctrl + z            → Toggle search  
+Ctrl + a/s/d/f      → Focus on menu/playlists/simulation/other section  
+Ctrl + k/l/;        → Toggle between search/lyrics/queue section  
+↑ and ↓             → Navigate up and down between items  
+] or [              → Increase/decrease volume by 5  
+Ctrl + ➡ / Ctrl + ⬅ → Seek forward/backward by 5 seconds  
+Ctrl + ➡ / Ctrl + ⬅ → Increase/decrease speed by 0.2x  
+Alt + h             → Display/close this help menu  
+Esc                 → Quit the app
+</code></pre><hr>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>I don’t expect anyone to care (but u should care). Honestly, this was more for me. To learn, to experiment, to see if I could push the limits of terminal UI in JS. And it did that.<br>
+And that’s what matters the most. If you&rsquo;re building something and it excites you, then even if no one else claps, you&rsquo;ve still won.</p>
+<p>Until next time. stay in terminal. peace</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Part 1: Getting Started With Linux</title>
       <link>http://localhost:1313/posts/getting-started-with-linux/</link>
@@ -37,8 +177,7 @@ Fires up browser&hellip;&ldquo;can penguins dieee?&rdquo;<br>
 Waits&hellip; waits intensively&hellip;<br>
 Google: &ldquo;Please verify you are not a robot.&rdquo;<br>
 Clicks&hellip; clicks&hellip; submit<br>
-Google: &ldquo;Yes, penguins do die like every other living organism, you dumbass. But they do live longer than Windows and Apples.&rdquo;</p>
-</blockquote>
+Google: &ldquo;Yes, penguins do die like every other living organism, you dumbass. But they do live longer than Windows and Apples.&rdquo;</p></blockquote>
 <h3 id="the-birth-of-linux">The Birth of Linux</h3>
 <p>The backstory of Linux is straightforward. At the heart of it all is <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>, an incredible programmer, who laid the foundation bricks for what we now know as Linux. Over the years, a global community of talented developers has built on that foundation, continually enhancing and evolving the system.</p>
 <p>That&rsquo;s all you gotta know. You can anytime fire up Wikipedia and learn about the cheeky little details, but I would recommend—<strong>theory is not something you should focus much on, especially for technical stuff</strong>. For your knowledge, surely go for it.</p>
@@ -53,8 +192,7 @@ Google: &ldquo;Yes, penguins do die like every other living organism, you dumbas
 </ul>
 <p>Think of the kernel as the manager of all system resources. It ensures that software can talk to the hardware and access resources, but it also ensures that the system runs efficiently and securely by controlling access and managing tasks.</p>
 <blockquote>
-<p><strong>NOTE</strong>: If you want to dive deeper into the relationship between the computer and hardware, consider checking out <a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/">this</a>.</p>
-</blockquote>
+<p><strong>NOTE</strong>: If you want to dive deeper into the relationship between the computer and hardware, consider checking out <a href="https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/">this</a>.</p></blockquote>
 <h3 id="the-role-of-the-kernel-in-linux">The Role of the Kernel in Linux</h3>
 <p>Here are some of the key roles the kernel plays as an interface between hardware and software:</p>
 <ul>
@@ -80,8 +218,7 @@ Here are the steps:</p>
 <li>Follow the on-screen instructions to install Linux or use the live environment.</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: There are plenty of guides on the internet—just follow any one.</p>
-</blockquote>
+<p><strong>Note</strong>: There are plenty of guides on the internet—just follow any one.</p></blockquote>
 <h4 id="bare-metal">Bare Metal:</h4>
 <p>This step involves installing Linux directly on your system. It will delete your Windows forever, and you cannot recover it. There are ways like dual booting (<em>installing two OSes on one device</em>). But for now, let&rsquo;s focus on a clean installation of Linux on your system:</p>
 <ul>
@@ -97,11 +234,9 @@ Here are the steps:</p>
 <li>Now, simply follow the on-screen instructions and make a clean install on your storage device.</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: Unfortunately, this method is not possible on Apple devices. Though there are ways, they are complicated.</p>
-</blockquote>
+<p><strong>Note</strong>: Unfortunately, this method is not possible on Apple devices. Though there are ways, they are complicated.</p></blockquote>
 <blockquote>
-<p><strong>IMPORTANT</strong>: Installation on Bare Metal is not recommended for beginners because there is a higher chance you could lose all your data, and I don&rsquo;t want you to curse me for that.</p>
-</blockquote>
+<p><strong>IMPORTANT</strong>: Installation on Bare Metal is not recommended for beginners because there is a higher chance you could lose all your data, and I don&rsquo;t want you to curse me for that.</p></blockquote>
 <h4 id="windows-subsystem-for-linux">Windows Subsystem for Linux</h4>
 <p>It&rsquo;s a method to run Linux directly on your Windows system using the subsystem for Linux. It&rsquo;s a very straightforward method for any Windows user:</p>
 <ul>
@@ -111,17 +246,14 @@ Here are the steps:</p>
 <li>That&rsquo;s it; it will install Ubuntu by default.</li>
 </ul>
 <blockquote>
-<p><strong>INFO</strong>: Earlier, it was a long process to do, like configuring in the control panel to enable the WSL service, then proceeding with manually installing it from the Microsoft Store, and it wasn&rsquo;t that feature-rich.</p>
-</blockquote>
+<p><strong>INFO</strong>: Earlier, it was a long process to do, like configuring in the control panel to enable the WSL service, then proceeding with manually installing it from the Microsoft Store, and it wasn&rsquo;t that feature-rich.</p></blockquote>
 <blockquote>
-<p><em>Thank God Microsoft streamlined this feature to make it quick and efficient.</em></p>
-</blockquote>
+<p><em>Thank God Microsoft streamlined this feature to make it quick and efficient.</em></p></blockquote>
 <h4 id="cloud">Cloud</h4>
 <p>This process allows us to spin up a virtual machine directly on the cloud. Though they do cost some money, it&rsquo;s a good option if you are already familiar with services like AWS/Azure/GCP. You can also use third-party services like Linode.</p>
 <p>If you just need to get familiar with the command-line interface, Google IDX is a good option, as it provides a terminal window where you can practice commands and also learn the NIX package manager. On the other hand, you can use Google Cloud Shell too, which also uses an APT-like package manager.</p>
 <blockquote>
-<p>There are infinite possibilities; it just depends on what you are comfortable with. The basic commands on Linux are the same everywhere. Every distro has a layer on top to make some repetitive processes easy. That&rsquo;s it. Nothing else.</p>
-</blockquote>
+<p>There are infinite possibilities; it just depends on what you are comfortable with. The basic commands on Linux are the same everywhere. Every distro has a layer on top to make some repetitive processes easy. That&rsquo;s it. Nothing else.</p></blockquote>
 <h2 id="linux-distributions-what-are-they-and-why-so-many">Linux Distributions: What Are They and Why So Many?</h2>
 <p>Now, you might be thinking, why did I recommend you use Pop! OS or Ubuntu? What are they, and so on? <em>Good question&hellip; Next question?&hellip; Joking.</em></p>
 <p>Look, as I said, Linux is a kernel, which uses a lot of other utilities that make it an OS for performing different tasks. These utilities can be anything (desktop GUI, icons, fonts, tools, drivers, etc.).</p>
@@ -161,16 +293,13 @@ Here are the steps:</p>
 <blockquote>
 <p><strong>TIP</strong>: Don&rsquo;t Fall into the Distro Hopping Trap<br>
 <strong>Pick a distro, stick with it, and get better at it</strong>.<br>
-There’s no need to constantly jump between distros. If you&rsquo;re a beginner, <strong>Debian</strong> or <strong>Ubuntu</strong> are great choices. For more experienced users, <strong>Arch</strong> is ideal for customization &amp; advanced users, and <strong>Fedora</strong> is the go-to for enterprise use.</p>
-</blockquote>
+There’s no need to constantly jump between distros. If you&rsquo;re a beginner, <strong>Debian</strong> or <strong>Ubuntu</strong> are great choices. For more experienced users, <strong>Arch</strong> is ideal for customization &amp; advanced users, and <strong>Fedora</strong> is the go-to for enterprise use.</p></blockquote>
 <blockquote>
 <p><strong>HINT</strong>:<br>
-In future articles, we might explore some ways you can create your very own distro too. Stay Tuned.</p>
-</blockquote>
+In future articles, we might explore some ways you can create your very own distro too. Stay Tuned.</p></blockquote>
 <blockquote>
 <p><strong>Did you know?</strong><br>
-There are even some distros like <em><strong>Hannah Montana Linux</strong></em>, <em><strong>Biebian (for Justin Bieber fans)</strong></em>, <em><strong>Red Star OS (North Korea&rsquo;s official Linux distro, you can imagine how great that would be)</strong></em>, and even <em><strong>Linux XP (mimics Windows XP)</strong></em>.</p>
-</blockquote>
+There are even some distros like <em><strong>Hannah Montana Linux</strong></em>, <em><strong>Biebian (for Justin Bieber fans)</strong></em>, <em><strong>Red Star OS (North Korea&rsquo;s official Linux distro, you can imagine how great that would be)</strong></em>, and even <em><strong>Linux XP (mimics Windows XP)</strong></em>.</p></blockquote>
 <h2 id="the-command-line-the-heart-of-linux">The Command Line: The Heart of Linux</h2>
 <p>The core concept of Linux is getting familiar with the terminal. Yeah, it&rsquo;s that black screen with the blinking cursor—that&rsquo;s the Command Line Interface (CLI). I know it can be overwhelming for many (maybe everyone starting out&hellip; I was too). I actually tried avoiding it as much as possible in the initial days of my Linux switch. But eventually, we have to use it, and that&rsquo;s the hard pill to swallow. However, once you actually understand the power of the terminal, you might never leave it again.</p>
 <p><strong>Here are a few solid reasons why it&rsquo;s a must-have skill:</strong></p>
@@ -266,16 +395,13 @@ There are even some distros like <em><strong>Hannah Montana Linux</strong></em>,
 Linux terminals can be overwhelming at times, especially when we are just starting out. And for this, we have a helper, i.e., <code>man</code>. Nice naming, isn&rsquo;t it? <em>It&rsquo;s like how we ask questions in real life, &ldquo;Man, what is this?&rdquo;</em> <em>Silly jokes aside.</em><br>
 We can use this command like <strong><code>man &lt;TOOL_NAME&gt;</code></strong>, for example, <strong><code>man ls</code></strong> or <strong><code>man lsblk</code></strong>. It gives us complete A-Z usage of the tool directly from the terminal. In Linux, it’s more about reading first than implementing.<br>
 Many tools also have their own help menus, which we can access by <strong><code>-h</code></strong> or <strong><code>--help</code></strong>. It gives us a sweet little usage guide using flags.<br>
-BTW, anything starting with <strong><code>-</code></strong> or <strong><code>--</code></strong> in a command like <strong><code>--help</code></strong> is known as a flag. We can use multiple flags in one command to ease our life.</p>
-</blockquote>
+BTW, anything starting with <strong><code>-</code></strong> or <strong><code>--</code></strong> in a command like <strong><code>--help</code></strong> is known as a flag. We can use multiple flags in one command to ease our life.</p></blockquote>
 <blockquote>
 <p><strong>Text Editors</strong><br>
 Text editors are basically used to edit files quickly. Vim, Nano, and Emacs are all different types of text editors.
-The difficulty levels for these are: <strong>Nano &gt; Vim &gt; Emacs.</strong></p>
-</blockquote>
+The difficulty levels for these are: <strong>Nano &gt; Vim &gt; Emacs.</strong></p></blockquote>
 <blockquote>
-<p><strong>Suggestion</strong>: If you ever accidentally stumble upon <strong><code>vim</code></strong>, don’t worry—you can exit it with <strong><code>esc</code></strong> then <strong><code>:q!</code></strong>. It’s something that will definitely make you mad at first.</p>
-</blockquote>
+<p><strong>Suggestion</strong>: If you ever accidentally stumble upon <strong><code>vim</code></strong>, don’t worry—you can exit it with <strong><code>esc</code></strong> then <strong><code>:q!</code></strong>. It’s something that will definitely make you mad at first.</p></blockquote>
 <h2 id="linux-file-system-structure">Linux File System Structure</h2>
 <p>Unlike the Windows file system, Linux has a more structured and hierarchical approach. Everything in Linux is a <strong>file</strong>—whether it&rsquo;s system drivers, memory processes, configuration files, or even hardware-related components. This design makes Linux extremely flexible but also requires a bit of understanding to navigate efficiently.</p>
 <h3 id="users-and-groups-in-linux">Users and Groups in Linux</h3>
@@ -362,8 +488,7 @@ Not all users have the same responsibilities or permissions. We can’t trust ev
 <p><strong>You might not know</strong><br>
 Specific commands like <code>addgroup</code>, <code>delgroup</code>, <code>adduser</code>, <code>deluser</code> are for Debian-based distros.<br>
 But, in Arch Linux, it&rsquo;s <code>groupadd</code>, <code>groupdel</code>, <code>useradd</code>, <code>userdel</code> commands.<br>
-The reason it&rsquo;s like this is that, in Debian-based distros, it acts as a wrapper for the same command (visual enhancement only) that Arch Linux uses, as they are true to <strong>UNIX fundamentals</strong>, which suggests that Arch sticks to roots and keeps things minimal.</p>
-</blockquote>
+The reason it&rsquo;s like this is that, in Debian-based distros, it acts as a wrapper for the same command (visual enhancement only) that Arch Linux uses, as they are true to <strong>UNIX fundamentals</strong>, which suggests that Arch sticks to roots and keeps things minimal.</p></blockquote>
 <h3 id="understanding-the-linux-file-system-hierarchy-fhs">Understanding the Linux File System Hierarchy (FHS)</h3>
 <p>UNIX-based systems are known for their File System Hierarchy Standard (FHS). It&rsquo;s basically the entire file structure of the system. As we know, everything in Linux is a file, so its management is really important.</p>
 <p><strong>Common Directories and Their Functions:-</strong></p>
@@ -494,8 +619,7 @@ The reason it&rsquo;s like this is that, in Debian-based distros, it acts as a w
 </table>
 <blockquote>
 <p><strong>NOTE</strong>:
-For beginners, it&rsquo;s common that you might be on your desktop or VM, so I would recommend going for ext4. It&rsquo;s the most widely used filesystem, very stable, and not hardware-intensive. As you get familiar, you can try the other filesystems as needed. But keep in mind, basic fundamentals stay the same.</p>
-</blockquote>
+For beginners, it&rsquo;s common that you might be on your desktop or VM, so I would recommend going for ext4. It&rsquo;s the most widely used filesystem, very stable, and not hardware-intensive. As you get familiar, you can try the other filesystems as needed. But keep in mind, basic fundamentals stay the same.</p></blockquote>
 <h3 id="mounting-and-unmounting-file-systems">Mounting and Unmounting File Systems</h3>
 <ul>
 <li><strong>Mounting a Device</strong>:</li>
@@ -512,8 +636,7 @@ To auto-mount a partition at boot, add to <code>/etc/fstab</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>xxxxx /mnt ext4 defaults <span class="m">0</span> <span class="m">2</span>
 </span></span></code></pre></div><blockquote>
-<p><strong>NOTE</strong>: You can find UUID using <code>lsblk -f</code></p>
-</blockquote>
+<p><strong>NOTE</strong>: You can find UUID using <code>lsblk -f</code></p></blockquote>
 <h3 id="hard-links-vs-soft-links-and-symlinking">Hard Links vs. Soft Links and Symlinking</h3>
 <ul>
 <li>
@@ -569,15 +692,13 @@ So, here i am using hugo with papermodx theme and writing my very own blog about
 <li>Exclusive insights about latest and older tech from your very own top notch blogger.</li>
 </ul>
 <blockquote>
-<p>Note: Enough bragging, simply these blogs shouldn&rsquo;t be a thing u should entirely trust on, do your research, let that brain of yours do some work.</p>
-</blockquote>
+<p>Note: Enough bragging, simply these blogs shouldn&rsquo;t be a thing u should entirely trust on, do your research, let that brain of yours do some work.</p></blockquote>
 <h2 id="conclusion">Conclusion</h2>
 <p>After all of those heart touching words from your neighborhood blogger, u should conclude that, u guys are going to get some good knowledge, tutorials, insights of technologies and learn from the mistake i made <em>(which i am not going to share hehe)</em>.</p>
 <p>But still keep your eyes open for the mind boggling beginning of our new journey, where i am as blank like u are after reading this blog, cauz we both don&rsquo;t know what is gonna happen next.</p>
 <p>See yeah on the other side.</p>
 <blockquote>
-<p>PS: Never trust a 19 years old top notch blogger who just started out.</p>
-</blockquote>
+<p>PS: Never trust a 19 years old top notch blogger who just started out.</p></blockquote>
 ]]></content:encoded>
     </item>
     
