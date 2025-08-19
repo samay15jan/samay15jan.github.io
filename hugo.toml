@@ -119,18 +119,6 @@ url = "/projects/"
 weight = 10
 
 [[menu.main]]
-identifier = "resume"
-name = "Resume"
-url = "/resume/"
-weight = 10
-
-[[menu.main]]
-identifier = "search"
-name = "Search"
-url = "/search/"
-weight = 10
-
-[[menu.main]]
 identifier = "archives"
 name = "Archives"
 url = "/archives/"

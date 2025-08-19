@@ -6,7 +6,88 @@
     <description>Recent content in Posts on Samay15jan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Aug 2025 23:59:15 +0530</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Breaking Into Apple’s Walled Garden (Almost)</title>
+      <link>http://localhost:1313/posts/getting-started-with-linux-copy/</link>
+      <pubDate>Mon, 18 Aug 2025 23:59:15 +0530</pubDate>
+      
+      <guid>http://localhost:1313/posts/getting-started-with-linux-copy/</guid>
+      <description>I didn’t set out to fight the system, but here we are.</description>
+      <content:encoded><![CDATA[<h3 id="introduction">Introduction</h3>
+<p>All I wanted was simple solution to a bigger problem:<br>
+<strong>Develop and run my own app on my own iPhone without paying Apple a dime.</strong></p>
+<p>If you’ve ever tried developing for <a href="https://developer.apple.com/ios/">iOS</a>, you know how locked down the ecosystem is. Unlike Android, where you can just download and install an APK, iOS has always been about control. Apple decides what goes in, and unless you pay $100/year, own a Mac, to test and follow their endless rules—you’re stuck.</p>
+<p>That’s fine if you’re a big company. But for students, indie devs, or hobbyists on Windows/Linux, it feels impossible.</p>
+<p>And yet, I found a way.<br>
+Not a perfect way. Not a sustainable way. But it just works.</p>
+<hr>
+<h3 id="the-early-days-of-sideloading">The Early Days of Sideloading</h3>
+<p>My journey started with something very non-serious and personal: <strong>removing ads from YouTube on iOS.</strong></p>
+<p>On Android, we have <em>coughs</em>&hellip;<a href="https://revanced.app/"><em>ReVanced</em></a> and other mods. On iOS? Things weren’t so easy. I stumbled upon sideloading and thought it meant jailbreaking at first. Turns out—it didn’t.</p>
+<p>I grabbed some cracked <code>.ipa</code> files (basically iOS’s version of <code>.apk</code>) but had no idea how to install them. That’s when I entered the chaotic world of sideloading tools: <a href="https://sidestore.io/"><strong>Sidestore</strong></a> (which didn’t work), <a href="https://sideloadly.io/"><strong>Sideloadly</strong></a> (with no Linux support), <a href="https://github.com/SideStore/sideloader"><strong>Sideloader</strong></a> (almost worked) and finally <a href="https://altstore.io/"><strong>AltStore</strong></a> + <a href="https://github.com/NyaMisty/AltServer-Linux"><strong>AltServer-Linux</strong></a> which brought some magic with more problems along the way.</p>
+<p>AltStore was a revelation but only when you understand its working. But then came Apple’s infamous <strong>3-app limit.</strong> I tried hacking around it: running multiple Docker containers, different Apple IDs, even modding AltStore into “AltStoreX”, just to bypass the limit.</p>
+<p>Still after days of <code>.plist</code> editing which itself was pain, especially when binaries get messed up, I got two different AltStore instances working independently on one device… only to realize the 3-app limit is tied to the <strong>device itself</strong>, not the Apple ID. Brutal.</p>
+<p>Eventually, I discovered <a href="https://github.com/opa334/TrollStore"><strong>TrollStore</strong></a>, which exploited a vulnerability (like <a href="https://github.com/dora2-iOS/macdirtycow-exploit"><strong>macdirtycow</strong></a>) to bypass refresh limits entirely. No 7-day expiry. No re-signing. It was glorious.</p>
+<p><em>(Caveat: TrollStore only works on specific iOS versions/devices.)</em></p>
+<hr>
+<h3 id="the-real-problem">The Real Problem</h3>
+<p>Sideloading mods was fun, but the real problem hit me when I started working on my own app:<br>
+<a href="https://github.com/samay15jan/sparklines-mobile">Sparklines Mobile</a>, a music streaming app built with <strong>React Native + <a href="https://expo.dev/">Expo</a></strong> (unfinished and might never be anyways).</p>
+<p>On Android, Expo’s <a href="https://docs.expo.dev/eas/"><strong>EAS build system</strong></a> worked flawlessly. I could build an <code>.apk</code> and install it in minutes.<br>
+On iOS? Different story.</p>
+<ul>
+<li>
+<p>Simulator builds only, not real <code>.ipa</code>s</p>
+</li>
+<li>
+<p>Need a paid <a href="https://developer.apple.com/programs/">Apple Developer Account</a></p>
+</li>
+<li>
+<p>Need <a href="https://www.apple.com/macos/">macOS</a> + <a href="https://developer.apple.com/xcode/">Xcode</a> for building, and a specific iOS device to test it</p>
+</li>
+<li>
+<p>and distribution is impossible too</p>
+</li>
+</ul>
+<p>As someone on Linux, that was a dead end. But then I had a thought:<br>
+<strong>What if I could just get an unsigned <code>.ipa</code> and sideload it manually?</strong></p>
+<p>Apple wants that to happen only on macOS. Challenge accepted.</p>
+<hr>
+<h3 id="the-breakthrough">The Breakthrough</h3>
+<p>While digging around, I noticed projects like <a href="https://github.com/qnblackcat/uYouPlus"><strong>uYouPlus</strong></a> and <a href="https://github.com/whoeevee/EeveeSpotify"><strong>EeveeSpotify</strong></a> were building <code>.ipa</code> files using <strong><a href="https://docs.github.com/en/actions">GitHub Actions</a></strong> on macOS runners.</p>
+<p>That’s when it clicked:<br>
+<strong>Why not do the same for Expo apps?</strong></p>
+<p>I spent hours fighting with YAML configs, debugging failed builds, and experimenting with different workflows. Eventually, I managed to get GitHub’s macOS runners worked the way I wanted and generate an unsigned <code>.ipa</code> and sideloaded with AltStore/TrollStore.</p>
+<p>Guess what ? It worked.<br>
+I had my own React Native app running on my iPhone—no Mac, no paid Apple account, nothing.</p>
+<p>Sure, crashes were ugly (probably because I hadn’t set up error boundaries properly within my application codebase), but native modules worked fine. It felt surreal.</p>
+<hr>
+<h3 id="the-tool-that-could-have-been">The Tool That Could Have Been</h3>
+<p>At this point, I considered turning the whole process into a tool. Maybe:</p>
+<ul>
+<li>
+<p>A <strong>CLI</strong> to auto-generate the GitHub Actions workflow</p>
+</li>
+<li>
+<p>Or a <strong>web app</strong> frontend where you could link your GitHub account and upload code, and it spits out an <code>.ipa</code>. Something like <a href="https://vercel.com/"><strong>Vercel</strong></a> for mobile apps.</p>
+</li>
+</ul>
+<blockquote>
+<p>PS: There are things like <a href="https://github.com/hack-different/webmuxd">webmuxd</a> which could be a game changer.</p></blockquote>
+<p>Basically, a free alternative to Expo’s paid EAS service—but for people who just want to test and learn without Apple’s gatekeeping, legally and ethically, and for personal use only.</p>
+<p>I had some ideas and minimal executional logic… but never turned into something real. And maybe i didn’t even need to anymore. I was already moving away from iOS.</p>
+<p>Still, I pushed what I had to GitHub: <a href="https://github.com/samay15jan/Altux"><strong>Altux</strong></a><br>
+You could refer to GitHub Action template and README file in the repository for some nitty gritty, behind the scenes working.<br>
+If anyone wants to build on top of it, go ahead.</p>
+<hr>
+<h3 id="conclusion">Conclusion</h3>
+<p>This whole thing started because I just wanted to test an iOS app without paying Apple. And in the process, I learned a lot about sideloading, CI, and Apple’s walls.</p>
+<p>I’m not maintaining this project, and I’m not sticking with iOS either. But maybe this little experiment will help students, indie devs, or tinkerers who just want to learn without paying $100/year for the privilege.</p>
+<p>Apple may have a walled garden, but sometimes a crack in the wall is all you need to learn, build, and experiment. Altux was mine. Waiting for yours&hellip;</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>How I Built a TUI Without Leaving the Terminal</title>
       <link>http://localhost:1313/posts/how-i-build-a-tui-without-leaving-the-terminal/</link>
@@ -140,6 +221,9 @@ Ctrl + ➡ / Ctrl + ⬅ → Increase/decrease speed by 0.2x
 Alt + h             → Display/close this help menu  
 Esc                 → Quit the app
 </code></pre><hr>
+<p><a href="https://asciinema.org/a/696484">
+  <img loading="lazy" src="https://asciinema.org/a/696484.svg" alt="TUI Demo"  /></a></p>
+<hr>
 <h3 id="final-thoughts">Final Thoughts</h3>
 <p>I don’t expect anyone to care (but u should care). Honestly, this was more for me. To learn, to experiment, to see if I could push the limits of terminal UI in JS. And it did that.<br>
 And that’s what matters the most. If you&rsquo;re building something and it excites you, then even if no one else claps, you&rsquo;ve still won.</p>
@@ -624,17 +708,17 @@ For beginners, it&rsquo;s common that you might be on your desktop or VM, so I w
 <ul>
 <li><strong>Mounting a Device</strong>:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mount /dev/sdxx /mnt <span class="c1"># sdxx can be sda1, sdb, etc.</span>
-</span></span><span class="line"><span class="cl">ls /mnt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mount /dev/sdxx /mnt <span style="color:#75715e"># sdxx can be sda1, sdb, etc.</span>
+</span></span><span style="display:flex;"><span>ls /mnt
 </span></span></code></pre></div><ul>
 <li><strong>Unmounting</strong>:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo umount /mnt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo umount /mnt
 </span></span></code></pre></div><ul>
 <li><strong>Permanent Mounting (fstab)</strong>:
 To auto-mount a partition at boot, add to <code>/etc/fstab</code></li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>xxxxx /mnt ext4 defaults <span class="m">0</span> <span class="m">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>UUID<span style="color:#f92672">=</span>xxxxx /mnt ext4 defaults <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>NOTE</strong>: You can find UUID using <code>lsblk -f</code></p></blockquote>
 <h3 id="hard-links-vs-soft-links-and-symlinking">Hard Links vs. Soft Links and Symlinking</h3>
